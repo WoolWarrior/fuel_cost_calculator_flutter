@@ -7,7 +7,7 @@ class CostFactor {
 
   double cost() {
     if (distance != null && fuelEconomy != null && fuelPrice != null) {
-      return distance / fuelEconomy * fuelPrice * 4.54609;
+      return distance / fuelEconomy * fuelPrice * 4.54609 / 100;
     } else {
       return 0;
     }

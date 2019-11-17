@@ -10,7 +10,7 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
   CalculationBloc({@required this.costFactor});
 
   @override
-  CalculationState get initialState => CalculationUnCalculated(costFactor);
+  CalculationState get initialState => CalculationUnCalculated(costFactor.cost());
 
   @override
   Stream<CalculationState> mapEventToState(
@@ -26,7 +26,8 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
     costFactor.distance = event.distance;
     costFactor.fuelPrice = event.fuelPrice;
     costFactor.fuelEconomy = event.fuelEconomy;
+    double cost = costFactor.cost();
 
-    yield CalculationCalculated(costFactor);
+    yield CalculationCalculated(cost);
   }
 }

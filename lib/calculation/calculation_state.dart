@@ -1,37 +1,31 @@
-//import 'package:meta/meta.dart';
-import 'package:equatable/equatable.dart';
-import 'package:fuel_cost_calculator_flutter/cost_factors_repository/cost_factor.dart';
+abstract class CalculationState  {
 
-//@immutable
-abstract class CalculationState extends Equatable {
-  final CostFactor costFactor;
+  double cost;
 
-  CalculationState(this.costFactor);
+  CalculationState(this.cost);
 
-  @override
   List<Object> get props => [];
 }
 
 class CalculationUnCalculated extends CalculationState {
-  CalculationUnCalculated(CostFactor costFactor) : super(costFactor);
+  CalculationUnCalculated(double cost) : super(cost);
+
+//  CalculationUnCalculated(CostFactor costFactor) : super(costFactor);
 
   @override
   String toString() => 'CalculationUnCalculated { costFactor: unCalculated }';
 }
 
 class CalculationCalculated extends CalculationState {
-  CalculationCalculated(CostFactor costFactor) : super(costFactor);
+  CalculationCalculated(double cost) : super(cost);
+
+//  CalculationCalculated(CostFactor costFactor) : super(costFactor);
+
 
   @override
-  List<Object> get props => [costFactor];
+  List<Object> get props => [cost];
 
   @override
-  String toString() => 'CalculationCalculated { costFactor: $costFactor }';
+  String toString() => 'CalculationCalculated { costFactor: $cost }';
 }
-//
-//class CalculationError extends CalculationState {
-//  const CalculationError(double cost) :super(cost);
-//
-//  @override
-//  String toString() => 'CalculationError { cost: $cost }';
-//}
+
