@@ -14,6 +14,9 @@ abstract class CalculationState extends Equatable {
 
 class CalculationUnCalculated extends CalculationState {
   CalculationUnCalculated(CostFactor costFactor) : super(costFactor);
+
+  @override
+  String toString() => 'CalculationUnCalculated { costFactor: unCalculated }';
 }
 
 class CalculationCalculated extends CalculationState {

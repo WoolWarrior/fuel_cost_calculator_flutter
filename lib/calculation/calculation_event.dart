@@ -2,14 +2,14 @@ import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
 //@immutable
-abstract class CalculationEvent extends Equatable{
+abstract class CalculationEvent extends Equatable {
   const CalculationEvent();
 
   @override
-  List<Object> get props =>[];
+  List<Object> get props => [];
 }
 
-class CalculationButtonPressed extends CalculationEvent{
+class CalculationButtonPressed extends CalculationEvent {
   final double distance;
   final double fuelPrice;
   final double fuelEconomy;
@@ -24,5 +24,6 @@ class CalculationButtonPressed extends CalculationEvent{
   List<Object> get props => [distance, fuelPrice, fuelEconomy];
 
   @override
-  String toString() => 'CalculationButtonPressed { distance: $distance, fuelPrice: $fuelPrice, fuelEconomy: $fuelEconomy }';
+  String toString() =>
+      'CalculationButtonPressed { distance: $distance, fuelPrice: $fuelPrice, fuelEconomy: $fuelEconomy }';
 }

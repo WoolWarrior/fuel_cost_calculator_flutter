@@ -14,10 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<CalculationBloc>(
-        builder: (context) => CalculationBloc(costFactor: CostFactor()),
-        child: MyHomePage(),
-      ),
+      home: MyHomePage(),
     );
   }
 }
@@ -29,7 +26,11 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Calculator'),
       ),
-      body: CalculateForm(),
+      body: //CalculateForm(),
+          BlocProvider<CalculationBloc>(
+            builder: (context) => CalculationBloc(costFactor: CostFactor()),
+            child: CalculateForm(),
+      ),
     );
   }
 }

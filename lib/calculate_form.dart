@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fuel_cost_calculator_flutter/calculation/bloc.dart';
 
-import 'cost_factors_repository/cost_factor.dart';
+//import 'cost_factors_repository/cost_factor.dart';
 
 class CalculateForm extends StatelessWidget {
   final _distanceController = TextEditingController();
@@ -18,6 +18,12 @@ class CalculateForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final CalculationBloc calculationBloc =
         BlocProvider.of<CalculationBloc>(context);
+
+//    return
+//      BlocProvider<CalculationBloc>(
+//      builder: (context) => CalculationBloc(costFactor: CostFactor()),
+//      child: CalculateForm(),
+//    );
 
     return Form(
       child: Column(
@@ -46,12 +52,15 @@ class CalculateForm extends StatelessWidget {
             },
             child: Text('Calculate'),
           ),
-          Container(child: BlocBuilder<CalculationBloc, CalculationState>(
-              builder: (context, calculationBloc) {
-            return Text(calculationBloc.costFactor.cost().toString());
-          })),
+          Container(
+              child: BlocBuilder<CalculationBloc, CalculationState>(
+                  bloc: calculationBloc,
+                  builder: (context, calculationCalculated ) {
+                    return Text(calculationCalculated.costFactor.cost().toString());
+                  })),
         ],
       ),
     );
   }
+
 }

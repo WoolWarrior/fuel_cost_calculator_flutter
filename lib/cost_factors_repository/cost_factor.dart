@@ -1,5 +1,3 @@
-import 'package:meta/meta.dart';
-
 class CostFactor {
   double distance;
   double fuelPrice;
@@ -8,22 +6,14 @@ class CostFactor {
   CostFactor({this.distance, this.fuelPrice, this.fuelEconomy});
 
   double cost() {
-    if (distance != null && fuelEconomy != null && fuelPrice != null){
+    if (distance != null && fuelEconomy != null && fuelPrice != null) {
       return distance / fuelEconomy * fuelPrice * 4.54609;
-    } else{
+    } else {
       return 0;
     }
-
   }
 
   @override
   String toString() =>
       'CostFactorRepository { distance: $distance, fuelPrice: $fuelPrice, fuelEconomy: $fuelEconomy}';
-
-//  Stream<double> cost({double distance,double fuelPrice,fuelEconomy}) {
-//    return Stream
-//    cost = distance / fuelEconomy *  fuelPrice * 4.54609;
-//    return cost;
-//  }
-
 }
